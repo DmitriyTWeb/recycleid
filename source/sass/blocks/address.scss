@@ -1,0 +1,148 @@
+.address {
+  padding-top: 29px;
+
+  &--inner {
+    background-color: $white-grey-bg;
+  }
+}
+
+.address__header {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 25px;
+}
+
+.address__cta {
+  width: 140px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.address__address {
+  width: 138px;
+
+  font-family: $second-font, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-style: normal;
+  color: $grey;
+}
+
+.address__iframe {
+  display: none;
+  border: none;
+  width: 100%;
+
+  background-color: #faf6e6;
+}
+
+.address__bg-map {
+  display: none;
+}
+
+.address__bg-map--nojs {
+  display: block;
+}
+
+.address__iframe--json {
+  display: block;
+}
+
+.address__img {
+  display: block;
+}
+
+@media (min-width: $tablet-width) {
+  .address {
+    padding-top: 0;
+    background-color: transparent;
+  }
+
+  .address__header {
+    position: relative;
+
+    padding-top: 64px;
+    padding-bottom: 60px;
+    padding-left: 42px;
+    padding-right: 42px;
+    margin-bottom: 0;
+  }
+
+  .address__header--inner {
+    margin-bottom: 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      bottom: 0;
+      left: -350px;
+      right: -350px;
+
+      background-color: $white-grey-bg;
+    }
+  }
+
+  .address__cta {
+    width: 160px;
+    font-size: 20px;
+    line-height: 25px;
+  }
+
+  .address__address {
+    display: flex;
+    flex-direction: column;
+    width: 155px;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: right;
+  }
+
+  .address__city {
+    margin-top: 20px;
+  }
+
+  .address__iframe {
+    height: 396px;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .address {
+    position: relative;
+  }
+
+  .address__relative {
+    position: relative;
+  }
+
+  .address__header {
+    position: absolute;
+    padding-left: 77px;
+    padding-right: 90px;
+    padding-top: 63px;
+    padding-bottom: 57px;
+    margin-bottom: 0;
+    top: 95px;
+    left: 0;
+    width: 570px;
+
+    background-color: $white;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .address__address {
+    text-align: left;
+  }
+
+  .address__iframe {
+    height: 400px;
+  }
+}

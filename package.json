@@ -1,0 +1,61 @@
+{
+  "name": "recycleid",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Service to identify recycled resources. The main idea is to speed up the transition to a waste-free lifestyle.",
+  "scripts": {
+    "build": "webpack",
+    "eslint": "eslint src/**/*.js",
+    "start": "webpack-dev-server --open",
+    "test": "npm run eslint",
+    "gbuild": "gulp build",
+    "gimages": "gulp images",
+    "gstart": "gulp start",
+    "gstylelint": "stylelint \"source/sass/**/*.scss\" --syntax scss"
+  },
+  "devDependencies": {
+    "autoprefixer": "9.5.x",
+    "browser-sync": "2.26.x",
+    "css-loader": "3.5.2",
+    "eslint": "6.1.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-react": "7.23.1",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "gulp": "4.0.x",
+    "gulp-csso": "^3.0.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-plumber": "1.2.x",
+    "gulp-postcss": "8.0.x",
+    "gulp-posthtml": "^3.0.4",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "4.0.x",
+    "gulp-sourcemaps": "2.6.x",
+    "gulp-svgstore": "^7.0.1",
+    "gulp-uglify": "^3.0.2",
+    "gulp-webp": "^4.0.1",
+    "pixel-glass": "^1.0.13",
+    "posthtml-include": "^1.2.0",
+    "style-loader": "1.1.4",
+    "webpack": "4.42.1",
+    "webpack-cli": "3.3.11",
+    "webpack-dev-server": "3.11.0"
+  },
+  "engines": {
+    "node": "14"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "IE 11",
+    "Firefox ESR"
+  ],
+  "editorconfig-cli": [
+    "*.json",
+    "*.js",
+    "source/*.html",
+    "source/js/**/*.js",
+    "source/img/**/*.svg",
+    "source/sass/**/*.{sass,scss}"
+  ]
+}
