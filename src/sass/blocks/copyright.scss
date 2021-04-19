@@ -1,3 +1,9 @@
+.copyright {
+  margin-top: -2px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
 .copyright__link {
   display: flex;
   justify-content: space-between;
@@ -5,6 +11,7 @@
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
+  width: 120px;
 
   font-family: $second-font, sans-serif;
   font-size: 16px;
@@ -28,8 +35,5 @@
 }
 
 @media (min-width: $tablet-width) {
-  .copyright {
-    margin-top: -2px;
-    padding: 0;
-  }
+
 }

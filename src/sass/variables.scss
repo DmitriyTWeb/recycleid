@@ -1,3 +1,12 @@
+// devices width
+$tablet-width: 768px;
+$desktop-width: 1280px;
+$mobile-width-only: 767px;
+
+// container width
+$container-tablet-width:708px;
+$container-desktop-width: 1170px;
+
 // color variables ====================
 // recycleid variables
 $main-green: #0D9953;
@@ -22,14 +31,9 @@ $light-green: #88f7ad;
 $base-font: "Roboto";
 $second-font: "Arial";
 
-// devices width
-$tablet-width: 768px;
-$desktop-width: 1280px;
-$mobile-width-only: 767px;
 
-// container width
-$container-tablet-width:708px;
-$container-desktop-width: 1170px;
+
+
 
 //retina vaiables
 $retina-dpi: 144dpi;

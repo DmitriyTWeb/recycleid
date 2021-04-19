@@ -1,6 +1,7 @@
 .page-footer {
   background-color: $bg-color;
   border-top: 2px solid $grey;
+  padding: 20px 0;
 }
 
 .page-footer__wrapper {
@@ -9,7 +10,7 @@
 }
 
 .page-footer__logo {
-  padding-top: 40px;
+  padding-top: 0;
   padding-bottom: 28px;
   text-align: center;
 }
@@ -51,7 +52,7 @@
   }
 
   .page-footer__logo {
-    width: 164px;
+    width: 170px;
     margin: 0;
     padding: 0;
     text-align: left;

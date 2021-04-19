@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
-import { Measure } from 'react-measure';
+import PropTypes from 'prop-types';
+import Measure from 'react-measure';
 import useUserMedia from '../../hooks/useUserMedia';
 import useCardRatio from '../../hooks/useCardRatio';
 import useOffssets from '../../hooks/useOffsets';
@@ -10,7 +11,7 @@ import {
   Container,
   Flash,
   Overlay,
-  Button
+  Button,
 } from '../../temp/styles';
 
 const CAPTURE_OPTIONS = {
@@ -20,7 +21,7 @@ const CAPTURE_OPTIONS = {
 
 const DEFAULT_CARD_RATIO = 1.586;
 
-const Camera = ({ onCapture, onClear}) => {
+const Camera = ({ onCapture, onClear }) => {
   const canvasRef = useRef();
   const videoRef = useRef();
 
@@ -95,7 +96,7 @@ const Camera = ({ onCapture, onClear}) => {
             maxHeight={videoRef.current && videoRef.current.videoHeight}
             maxWidth={videoRef.current && videoRef.current.videoWidth}
             style={{
-              height: `${container.height}px`
+              height: `${container.height}px`,
             }}
           >
             <Video
@@ -107,7 +108,7 @@ const Camera = ({ onCapture, onClear}) => {
               muted
               style={{
                 top: `-${offsets.y}px`,
-                left: `-${offsets.x}px`
+                left: `-${offsets.x}px`,
               }}
             />
 
@@ -134,6 +135,17 @@ const Camera = ({ onCapture, onClear}) => {
       )}
     </Measure>
   );
+};
+
+Camera.propTypes = {
+  onCapture: PropTypes.func,
+  onClear: PropTypes.func,
+};
+
+Camera.defaultProps = {
+  onCapture: () => console.log('onCapture props is not defined;'),
+  onClear: () => console.log('onClear props is not defined;'),
+
 };
 
 export default Camera;

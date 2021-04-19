@@ -1,19 +1,17 @@
-"use strict";
-
-var gulp = require("gulp");
+const gulp = require('gulp');
 // var plumber = require("gulp-plumber");
-var sourcemap = require("gulp-sourcemaps");
-var server = require("browser-sync").create();
-var sass = require("gulp-sass");
-var postcss = require("gulp-postcss");
-var autoprefixer = require("autoprefixer");
-var csso = require("gulp-csso");
-var rename = require("gulp-rename");
-var del = require("del");
-var webpack = require("webpack-stream");
-const path = require("path");
-
+const sourcemap = require('gulp-sourcemaps');
+const server = require('browser-sync').create();
+const sass = require('gulp-sass');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const csso = require('gulp-csso');
+const rename = require('gulp-rename');
+const del = require('del');
+const webpack = require('webpack-stream');
+const path = require('path');
 const webpackConfig = require('./webpack.config.js');
+
 const webpackConfigProd = Object.assign({}, webpackConfig, { mode: 'production' });
 
 gulp.task('webpack', function () {
@@ -70,10 +68,25 @@ gulp.task("css", function () {
 gulp.task("copy", function () {
   return gulp.src([
     "src/*.html",
+    "src/img/*.{svg,png,ico}",
+    "src/fonts/*.{woff,woff2}",
   ], {
-
+    base: "src"
   })
     .pipe(gulp.dest("build"));
+});
+
+gulp.task("images", function () {
+  return gulp.src("source/img/**/*.{png,jpg,svg}")
+    .pipe(imagemin([
+      imagemin.optipng({ optimizationLevel: 3 }),
+      imagemin.jpegtran({ progressive: true }),
+      imagemin.svgo()
+
+    ]))
+
+    .pipe(gulp.dest("source/img"));
+
 });
 
 gulp.task("clean", function () {

@@ -4,118 +4,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>RECYCLEID</title>
+    <link rel="icon" type="image/svg+xml" href="/img/rid-favicon.svg">
+    <link rel="alternate icon" href="/favicon.ico">
     <link rel="preload" href="css/style.min.css" as="style">
     <link rel="preload" href="fonts/oswaldmedium.woff2" as="font" crossorigin="anonymous">
     <link rel="preload" href="fonts/oswaldregular.woff2" as="font" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <link rel="stylesheet" type="text/css" href="css/style.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
   </head>
 
 
   <body class="main-body">
-
-    <header class="page-header">
-      <div class="container">
-        <div class="page-header__wrapper">
-          <a class="page-header__logo logo">
-            <img class="page-header__logo-image" src="img/icon-recycleid-2.svg" width="191" height="38" alt="Recycleid logo">
-          </a>
-
-          <nav class="main-nav main-nav--opened main-nav--nojs">
-
-            <button class="main-nav__toggle" type="button"><span class="visually-hidden">Открыть меню</span></button>
-
-            <div class="main-nav__wrapper">
-              <ul class="main-nav__list">
-                <li class="main-nav__item main-nav__item--active">
-                  <a class="main-nav__link">
-                    Главная
-                  </a>
-                </li>
-                <li class="main-nav__item">
-                  <a class="main-nav__link" href="catalog.html">
-                    Штрихкод
-                  </a>
-                </li>
-                <li class="main-nav__item">
-                  <a class="main-nav__link" href="form.html">
-                    О нас
-                  </a>
-                </li>
-
-              </ul>
-            </div>
-
-          </nav>
-        </div>
-      </div>
-    </header>
-
-    <main class="page-main">
-
-        <section class="intro">
-          <div class="intro__mobile-bg">
-            <div class="container">
-              <div class="intro__wrapper">
-                <div class="intro__header">
-                  <h1 class="intro__title">Сканировать объект для переработки</h1>
-                  <p class="intro__slogan">Занялся собой? Займись котом!</p>
-                </div>
-                <video autoplay playsinline muted id="webcam" width="224" height="224"></video>
-                <button id="classify_btn">Сканировать</button>
-                <button id="saveModelBtn">Сохранить модель</button>
-                <!-- <picture class="intro__image-wrapper">
-                  <source type="image/webp" media="(min-width: 1280px)" srcset="img/index-can-desktop@1x.webp 1x, img/index-can-desktop@2x.webp 2x">
-                  <source type="image/webp" media="(min-width: 768px)" srcset="img/index-can-tablet@1x.webp 1x, img/index-can-tablet@2x.webp 2x">
-                  <source type="image/webp" srcset="img/index-can-mobile@1x.webp 1x, img/index-can-mobile@2x.webp 2x">
-
-                  <source media="(min-width: 1280px)" srcset="img/index-can-desktop@1x.png 1x, img/index-can-desktop@2x.png 2x">
-                  <source media="(min-width: 768px)" srcset="img/index-can-tablet@1x.jpg 1x, img/index-can-tablet@2x.jpg 2x">
-                  <img class="intro__image" src="img/index-can-mobile@1x.png" srcset="img/index-can-mobile@2x.png 2x" width="280" height="270" alt="Курица">
-                </picture> -->
-                <a class="intro__button button" href="form.html">Сканировать</a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-    </main>
-
-    <footer class="page-footer">
-      <div class="container">
-
-        <div class="page-footer__wrapper">
-
-          <a class="page-footer__logo logo">
-            Designed by Dmitriy Teterin
-          </a>
-
-          <div class="page-footer__copyright copyright">
-            <a class="copyright__link" href="#">
-              RecycleID
-              <img class="copyright__img" src="img/icon-logoonly-grey.svg" width="40" height="40" alt="Recycleid logo">
-            </a>
-          </div>
-
-        </div>
-
-      </div>
-    </footer>
-
-    <script src="js/picturefill.min.js" async></script>
-    <script>document.createElement( "picture" );</script>
-
-    <script src="js/svg4everybody.min.js"></script>
-    <script>svg4everybody();</script>
-    <script src="js/script.min.js"></script>
+    <div id="root"></div>
+    <script src="./bundle.js"></script>
     <script>
       // the link to your model provided by Teachable Machine export panel
-      const URL = "http://localhost:3000/";
-      const modelURL = URL + "/my-model/model.json";
-      const metadataURL = URL + "/my-model/metadata.json";
+      // const URL = "http://localhost:3000/";
+      // const modelURL = URL + "/my-model/model.json";
+      // const metadataURL = URL + "/my-model/metadata.json";
 
-      const webcamElement = document.getElementById('webcam');
-      const classifyBtn = document.getElementById('classify_btn');
+      // const webcamElement = document.getElementById('webcam');
+      // const classifyBtn = document.getElementById('classify_btn');
 
       // async function app() {
       //   console.log('Loading mobilenet..');

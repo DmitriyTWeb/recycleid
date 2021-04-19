@@ -39,9 +39,11 @@
     "gulp-sass": "4.0.x",
     "gulp-sourcemaps": "2.6.x",
     "webpack": "4.42.1",
-    "webpack-dev-server": "3.11.0"
+    "webpack-dev-server": "3.11.0",
+    "webpack-stream": "^6.1.2"
   },
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-measure": "^2.5.2",
