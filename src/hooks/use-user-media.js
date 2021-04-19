@@ -17,7 +17,7 @@ const useUserMedia = (requestedMedia) => {
       enableStream();
     } else {
       return function cleanup() {
-        mediaStream.getTracks().foreach((track) => {
+        mediaStream.getTracks().forEach((track) => {
           track.stop();
         });
       };

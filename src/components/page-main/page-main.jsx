@@ -1,14 +1,12 @@
 import React from 'react';
-import Camera from '../camera/camera';
+import Capturing from '../capturing/capturing';
 
 const PageMain = () => (
   <main className="page-main">
-    <section className="capturing">
-      <div className="container">
-        <p>This is page main block</p>
-        <Camera />
-      </div>
-    </section>
+    <div className="container">
+      <p>This is page main block</p>
+      <Capturing />
+    </div>
   </main>
 );
 

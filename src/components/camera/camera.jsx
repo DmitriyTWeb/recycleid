@@ -1,18 +1,8 @@
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import Measure from 'react-measure';
-import useUserMedia from '../../hooks/useUserMedia';
-import useCardRatio from '../../hooks/useCardRatio';
-import useOffssets from '../../hooks/useOffsets';
-import {
-  Video,
-  Canvas,
-  Wrapper,
-  Container,
-  Flash,
-  Overlay,
-  Button,
-} from '../../temp/styles';
+import useUserMedia from '../../hooks/use-user-media';
+import useCardRatio from '../../hooks/use-card-ratio';
 
 const CAPTURE_OPTIONS = {
   audio: false,
@@ -28,16 +18,8 @@ const Camera = ({ onCapture, onClear }) => {
   const [container, setContainer] = useState({ width: 0, heigth: 0 });
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isCanvasEmpty, setIsCanvasEmpty] = useState(true);
-  const [isFlashing, setIsFlashing] = useState(false);
-
   const mediaStream = useUserMedia(CAPTURE_OPTIONS);
   const [aspectRatio, calculateRatio] = useCardRatio(DEFAULT_CARD_RATIO);
-  const offsets = useOffssets(
-    videoRef.current && videoRef.current.videoWidth,
-    videoRef.current && videoRef.current.videoHeight,
-    container.width,
-    container.heigth,
-  );
 
   if (mediaStream && videoRef.current && !videoRef.current.srcObject) {
     videoRef.current.srcObject = mediaStream;
@@ -58,13 +40,9 @@ const Camera = ({ onCapture, onClear }) => {
 
   const handleCapture = () => {
     const context = canvasRef.current.getContext('2d');
-
+    context.canvas.height = videoRef.current.clientHeight;
     context.drawImage(
       videoRef.current,
-      offsets.x,
-      offsets.y,
-      container.width,
-      container.heigth,
       0,
       0,
       container.width,
@@ -73,7 +51,6 @@ const Camera = ({ onCapture, onClear }) => {
 
     canvasRef.current.toBlob((blob) => onCapture(blob), 'imga/jpeg', 1);
     setIsCanvasEmpty(false);
-    setIsFlashing(true);
   };
 
   const handleClear = () => {
@@ -90,62 +67,51 @@ const Camera = ({ onCapture, onClear }) => {
   return (
     <Measure bounds onResize={handleResize}>
       {({ measureRef }) => (
-        <Wrapper>
-          <Container
+        <div>
+          <div
+            className="camera__container"
             ref={measureRef}
-            maxHeight={videoRef.current && videoRef.current.videoHeight}
-            maxWidth={videoRef.current && videoRef.current.videoWidth}
-            style={{
-              height: `${container.height}px`,
-            }}
+            height={videoRef.current && videoRef.current.videoHeight}
+            width={videoRef.current && videoRef.current.videoWidth}
           >
-            <Video
+            <video
+              className="camera__video"
               ref={videoRef}
               hidden={!isVideoPlaying}
               onCanPlay={handleCanPlay}
               autoPlay
               playsInline
               muted
-              style={{
-                top: `-${offsets.y}px`,
-                left: `-${offsets.x}px`,
-              }}
+              width={container.width}
+              heigth={container.heigth}
             />
 
-            <Overlay hidden={!isVideoPlaying} />
+            <div className="camera__overlay" hidden={!isVideoPlaying} />
 
-            <Canvas
+            <canvas
+              className="camera__canvas"
               ref={canvasRef}
               width={container.width}
-              height={container.height}
             />
-
-            <Flash
-              flash={isFlashing}
-              onAnimationEnd={() => setIsFlashing(false)}
-            />
-          </Container>
-
+          </div>
           {isVideoPlaying && (
-            <Button onClick={isCanvasEmpty ? handleCapture : handleClear}>
+            <button
+              className="camera__shot"
+              type="button"
+              onClick={isCanvasEmpty ? handleCapture : handleClear}
+            >
               {isCanvasEmpty ? 'Take a picture' : 'Take another picture'}
-            </Button>
+            </button>
           )}
-        </Wrapper>
+        </div>
       )}
     </Measure>
   );
 };
 
 Camera.propTypes = {
-  onCapture: PropTypes.func,
-  onClear: PropTypes.func,
-};
-
-Camera.defaultProps = {
-  onCapture: () => console.log('onCapture props is not defined;'),
-  onClear: () => console.log('onClear props is not defined;'),
-
+  onCapture: PropTypes.func.isRequired,
+  onClear: PropTypes.func.isRequired,
 };
 
 export default Camera;

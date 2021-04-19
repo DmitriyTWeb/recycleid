@@ -1,0 +1,28 @@
+// @keyframes flashAnimation {
+//   0% { opacity: 0.75; }
+//   100% { opacity: 0; }
+// }
+.camera__container {
+  position: relative;
+  // overflow:  hidden;
+  width: 100%;
+  height: auto;
+}
+.camera__video {
+
+}
+.camera__canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  // background-color: rgba(197, 182, 190, 0.5);
+}
+
+.camera__shot {
+  display: block;
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 12px;
+  text-align: center;
+  z-index: 100;
+}
