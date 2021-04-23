@@ -1,36 +1,21 @@
 import { ActionType } from './action';
 
 const initialState = {
-  detections: [],
-  imgURL: null,
-  hoveredUID: null,
-  focusedArea: null,
+  imageURL: '',
 };
 
-const extend = (a, b) => Object.assign(...a, b);
+const extend = (a, b) => ({
+  ...a,
+  ...b,
+});
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.SET_DETECTIONS:
+    case ActionType.SET_IMAGE_URL:
+
       return extend(state, {
-        detections: action.payload,
+        imageURL: action.payload,
       });
-    // case ActionType.SET_IMG_URL:
-    //   return extend(state, {
-    //     imgURL: action.payload,
-    //   });
-    // case ActionType.SET_CANVAS_SIZE:
-    //   return extend(state, {
-    //     size: action.payload,
-    //   });
-    // case ActionType.SET_HOVERED:
-    //   return extend(state, {
-    //     hoveredUID: action.payload,
-    //   });
-    // case ActionType.SET_FOCUSED_AREA:
-    //   return extend(state, {
-    //     focusedArea: action.payload,
-    //   });
     default:
       return state;
   }

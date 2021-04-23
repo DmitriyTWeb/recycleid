@@ -1,17 +1,26 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { setImage } from '../../store/action';
 import Camera from '../camera/camera';
 import Preview from '../preview/preview';
 
-const Capturing = () => {
+const Capturing = ({ setCurrentImage }) => {
   const [isCameraOpen, setIsCameraOpen] = useState(false);
   const [cardImage, setCardImage] = useState();
+
+  const captureHandler = (blob) => {
+    setCardImage(blob);
+    const imageURL = URL.createObjectURL(blob);
+    setCurrentImage(imageURL);
+  };
 
   return (
     <>
       <section className="capturing">
         {isCameraOpen && (
           <Camera
-            onCapture={(blob) => setCardImage(blob)}
+            onCapture={captureHandler}
             onClear={() => setCardImage(undefined)}
           />
         )}
@@ -37,4 +46,15 @@ const Capturing = () => {
   );
 };
 
-export default Capturing;
+Capturing.propTypes = {
+  setCurrentImage: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentImage(image) {
+    dispatch(setImage(image));
+  },
+});
+
+export { Capturing };
+export default connect(null, mapDispatchToProps)(Capturing);
