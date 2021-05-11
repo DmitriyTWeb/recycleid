@@ -70,6 +70,7 @@ gulp.task("copy", function () {
     "src/*.html",
     "src/img/*.{svg,png,ico}",
     "src/fonts/*.{woff,woff2}",
+    "src/my_model/*.{json,bin}",
   ], {
     base: "src"
   })
