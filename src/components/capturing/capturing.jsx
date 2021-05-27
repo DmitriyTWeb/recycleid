@@ -14,6 +14,10 @@ const Capturing = ({ setCurrentImage }) => {
     const imageURL = URL.createObjectURL(blob);
     setCurrentImage(imageURL);
   };
+  const openCameraHandler = () => {
+    setIsCameraOpen(true);
+    console.log('tap on \'openCamera\' button');
+  };
 
   return (
     <>
@@ -30,7 +34,7 @@ const Capturing = ({ setCurrentImage }) => {
         )}
 
         <div className="capturing__control-btn">
-          <button type="button" onClick={() => setIsCameraOpen(true)}>Open Camera</button>
+          <button type="button" onClick={openCameraHandler}>Open Camera</button>
           <button
             type="button"
             onClick={() => {
