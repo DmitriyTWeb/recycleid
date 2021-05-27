@@ -43,6 +43,7 @@ gulp.task("server", function () {
   gulp.watch("src/sass/**/*.{scss,sass}", gulp.series("css"));
   gulp.watch("src/*.html", gulp.series("copy", "refresh"));
   gulp.watch("src/components/**/*.jsx", gulp.series("webpack", "refresh"));
+  gulp.watch("src/hooks/*.js", gulp.series("webpack", "refresh"));
   gulp.watch("src/*.js", gulp.series("webpack", "refresh"));
 });
 
