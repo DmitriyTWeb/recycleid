@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const useOffsets = (vWidth, vHeight, cWidth, cHeight) => {
-  const [offsets, setOffsets] = useState({ x: 0, y: 0});
+  const [offsets, setOffsets] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     if (vWidth && vHeight && cWidth && cHeight) {
