@@ -44,6 +44,7 @@ gulp.task("server", function () {
   gulp.watch("src/*.html", gulp.series("copy", "refresh"));
   gulp.watch("src/components/**/*.jsx", gulp.series("webpack", "refresh"));
   gulp.watch("src/hooks/*.js", gulp.series("webpack", "refresh"));
+  gulp.watch("src/assets/neuronet/*.js", gulp.series("webpack", "refresh"));
   gulp.watch("src/*.js", gulp.series("webpack", "refresh"));
 });
 
@@ -71,7 +72,7 @@ gulp.task("copy", function () {
     "src/*.html",
     "src/img/*.{svg,png,ico}",
     "src/fonts/*.{woff,woff2}",
-    "src/my_model/*.{json,bin}",
+    "src/assets/neuronet/datamodel/*.{json,bin}",
   ], {
     base: "src"
   })
