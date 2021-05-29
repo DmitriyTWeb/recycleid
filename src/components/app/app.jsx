@@ -5,12 +5,19 @@ import PageHeader from '../page-header/page-header';
 import PageMain from '../page-main/page-main';
 import PageFooter from '../page-footer/page-footer';
 
+import Model from '../../assets/neuronet/Model';
+
+const model = new Model();
+model.loadModel().then(() => {
+  // Обработать загрузку модели
+});
+
 const App = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/">
         <PageHeader />
-        <PageMain />
+        <PageMain model={model} />
         <PageFooter />
       </Route>
     </Switch>
