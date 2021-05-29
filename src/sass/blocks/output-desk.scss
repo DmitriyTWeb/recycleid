@@ -1,0 +1,23 @@
+.output-desk {
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+.output-desk__title {
+  text-align: center;
+}
+
+.output-desk__table {
+  border: 2px solid grey;
+  border-collapse: collapse;
+}
+
+.output-desk__table td,
+.output-desk__table th {
+  padding: 2px 10px 3px 10px;
+  text-align: center;
+  border: 2px solid grey;
+}
+
+td.output-desk__predict-title {
+  text-align: left;
+}
