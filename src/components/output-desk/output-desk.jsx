@@ -4,24 +4,46 @@ import { connect } from 'react-redux';
 
 import { setPredictions } from '../../store/action';
 import Model from '../../assets/neuronet/Model';
+import idClasses from '../../assets/id-classes/id-classes';
+import { kebabToCamelCase } from '../../utils';
+
+const emptyDescription = {
+  isAcceptable: false,
+  title: 'emptyTitle',
+  desc: 'emptyDesctiption',
+  preparingRules: [],
+};
+
+const getDescriptionByClassName = (className) => {
+  const classNameParts = className.split('__');
+  const SHORT_NAME_INDEX = 1;
+  const shortName = classNameParts[SHORT_NAME_INDEX];
+  const cameledName = kebabToCamelCase(shortName);
+
+  const description = idClasses[cameledName] || emptyDescription;
+
+  return description;
+};
 
 const getFormatedPredictions = (predicts) => {
-  console.log('getFormatedPredictions: predicts = ', predicts);
   const MAX_PREDICTIONS_NUMBER = 5;
 
   const mostValuePredicts = predicts.slice(0, MAX_PREDICTIONS_NUMBER);
+
   const convertedPredicts = mostValuePredicts.map((predict) => {
     let probability = predict.probability * 100;
     probability = probability < 1 ? 'менее 1%' : probability.toFixed(2);
 
+    const classDescription = getDescriptionByClassName(predict.className);
+    const isAcceptable = classDescription.isAcceptable ? '✔️' : '❌';
     return ({
       id: predict.className,
-      title: predict.className,
+      title: classDescription.title,
       probability,
+      isAcceptable,
     });
   });
 
-  console.log('convertedPredicts = ', convertedPredicts);
   return convertedPredicts;
 };
 
@@ -54,6 +76,7 @@ const OutputDesk = ({ model, imageURL, setPredictionsToStore }) => {
             <tr key={predict.id}>
               <td className="output-desk__predict-title">{`${predict.title}`}</td>
               <td>{`${predict.probability}`}</td>
+              <td>{`${predict.isAcceptable}`}</td>
             </tr>
           ))}
         </tbody>
