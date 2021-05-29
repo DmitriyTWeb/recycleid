@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setImage } from '../../store/action';
 import Camera from '../camera/camera';
-import Preview from '../preview/preview';
+// import Preview from '../preview/preview';
 
 const Capturing = ({ setCurrentImage }) => {
   const [isCameraOpen, setIsCameraOpen] = useState(false);
@@ -29,9 +29,10 @@ const Capturing = ({ setCurrentImage }) => {
           />
         )}
 
-        {cardImage && (
+        {/* удалить во время работы над декорированием захвата */}
+        {/* {cardImage && (
           <Preview blob={cardImage} />
-        )}
+        )} */}
 
         <div className="capturing__control-btn">
           <button type="button" onClick={openCameraHandler}>Open Camera</button>
