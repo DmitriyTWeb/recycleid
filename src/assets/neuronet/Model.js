@@ -28,11 +28,13 @@ export default class Model {
 
   loadModel() {
     return new Promise((resolve, reject) => {
-      getModel().then((model) => {
-        this.model = model;
-        if (this.model) resolve(SuccessMessage.MODEL_LOADED);
-        else reject(new Error(ErrorMessage.LOAD_MODEL_FAIL));
-      });
+      getModel()
+        .then((model) => {
+          this.model = model;
+          if (this.model) resolve(SuccessMessage.MODEL_LOADED);
+          else reject(new Error(ErrorMessage.LOAD_MODEL_FAIL));
+        })
+        .catch((err) => reject(err));
     });
   }
 
