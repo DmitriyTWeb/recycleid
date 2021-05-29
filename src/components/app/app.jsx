@@ -8,9 +8,13 @@ import PageFooter from '../page-footer/page-footer';
 import Model from '../../assets/neuronet/Model';
 
 const model = new Model();
-model.loadModel().then(() => {
-  // Обработать загрузку модели
-});
+model.loadModel()
+  .then(() => {
+    // Обработать загрузку модели
+  })
+  .catch((exception) => {
+    console.log(`Не удалось загрузить модель данных: \n `, exception);
+  });
 
 const App = () => (
   <BrowserRouter>
