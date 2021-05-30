@@ -26,3 +26,16 @@
     url("../fonts/oswaldmedium.woff2") format("woff2"),
     url("../fonts/oswaldmedium.woff") format("woff");
 }
+
+/* ptsans-regular*/
+@font-face {
+  font-family: "PtSans";
+
+  font-style: normal;
+  font-weight: 500;
+
+  font-display: swap;
+
+  src: local("PTSans-regular"),
+    url("../fonts/PTSans-regular.woff") format("woff2");
+}
