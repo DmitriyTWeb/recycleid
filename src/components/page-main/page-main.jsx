@@ -5,13 +5,17 @@ import PropTypes from 'prop-types';
 import Capturing from '../capturing/capturing';
 import OutputDesk from '../output-desk/output-desk';
 
+import Scan from '../scan/scan';
+
 import Model from '../../assets/neuronet/Model';
 
 const PageMain = ({ model }) => (
   <main className="page-main container">
     <div className="page-main__row">
-      <Capturing />
-      <OutputDesk model={model} />
+      <Scan />
+
+      {/* <Capturing />
+      <OutputDesk model={model} /> */}
     </div>
   </main>
 );
