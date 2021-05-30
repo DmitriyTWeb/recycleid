@@ -8,6 +8,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 20px;
 }
 
 .scan__shot-btn {
@@ -25,6 +26,7 @@
   .scan {
     width: 300px;
     height: 300px;
+    border-radius: 30px;
   }
 
   .scan__shot-btn {
@@ -36,5 +38,6 @@
   .scan {
     width: 400px;
     height: 400px;
+    border-radius: 45px;
   }
 }

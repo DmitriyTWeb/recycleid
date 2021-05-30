@@ -9,11 +9,7 @@ const Capturing = ({ setCurrentImage }) => {
   const [isCameraOpen, setIsCameraOpen] = useState(false);
   const [cardImage, setCardImage] = useState();
 
-  const captureHandler = (blob) => {
-    setCardImage(blob);
-    const imageURL = URL.createObjectURL(blob);
-    setCurrentImage(imageURL);
-  };
+
   const openCameraHandler = () => {
     setIsCameraOpen(true);
     console.log('tap on \'openCamera\' button');
@@ -22,18 +18,6 @@ const Capturing = ({ setCurrentImage }) => {
   return (
     <>
       <section className="capturing">
-        {isCameraOpen && (
-          <Camera
-            onCapture={captureHandler}
-            onClear={() => setCardImage(undefined)}
-          />
-        )}
-
-        {/* удалить во время работы над декорированием захвата */}
-        {/* {cardImage && (
-          <Preview blob={cardImage} />
-        )} */}
-
         <div className="capturing__control-btn">
           <button type="button" onClick={openCameraHandler}>Open Camera</button>
           <button

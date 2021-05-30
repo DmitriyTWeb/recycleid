@@ -2,14 +2,52 @@
 //   0% { opacity: 0.75; }
 //   100% { opacity: 0; }
 // }
-.camera__container {
-  position: relative;
-  // overflow:  hidden;
+.camera {
+  position: fixed;
+  left: 0;
+  top: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 .camera__video {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  z-index: 100;
+  left: 50%;
+  top: 32%;
+  z-index: 1001;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  border-radius: 10px;
+}
+.camera__shot-btn {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 50%;
+  top: 65%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 0, 0, 0.9);
+  background-color: transparent;
 
+  &:before {
+    position: absolute;
+    content: '';
+    width: 35px;
+    height: 35px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+
+    background-color: brown;
+  }
 }
 .camera__canvas {
   position: absolute;
