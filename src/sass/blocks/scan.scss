@@ -1,0 +1,40 @@
+.scan {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  background-image: url("../img/icon-scan.svg");
+  background-color: #f0f8ff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.scan__shot-btn {
+  font-size: 25px;
+  position: absolute;
+  font-family: PtSans;
+  border: none;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+}
+
+@media (min-width: $tablet-width) {
+  .scan {
+    width: 300px;
+    height: 300px;
+  }
+
+  .scan__shot-btn {
+    font-size: 30px;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .scan {
+    width: 400px;
+    height: 400px;
+  }
+}
