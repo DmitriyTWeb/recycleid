@@ -13,16 +13,18 @@ model.loadModel()
     // Обработать загрузку модели
   })
   .catch((exception) => {
-    console.log(`Не удалось загрузить модель данных: \n `, exception);
+    console.log('Не удалось загрузить модель данных: \n ', exception);
   });
 
 const App = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/">
-        <PageHeader />
-        <PageMain model={model} />
-        <PageFooter />
+        <div className="app">
+          <PageHeader />
+          <PageMain model={model} />
+          <PageFooter />
+        </div>
       </Route>
     </Switch>
   </BrowserRouter>

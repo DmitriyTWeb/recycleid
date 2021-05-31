@@ -4,7 +4,7 @@
   font-size: 20px;
   line-height: 20px;
   padding: 10px 0;
-  border-bottom: 1px solid $separator-light;
+  border-bottom: 1px solid $separator-grey;
   background-color: $bg-color;
 }
 
@@ -35,7 +35,6 @@
 @media (min-width: $tablet-width) {
   .page-header {
     flex-direction: row;
-    border-bottom: none;
   }
 
   .page-header__wrapper {
