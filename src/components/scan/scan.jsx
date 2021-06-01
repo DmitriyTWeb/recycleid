@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+// eslint-disable-next-line import/no-named-as-default
 import Camera from '../camera/camera';
 
-const Scan = (props) => {
+const Scan = ({ imgURL }) => {
   const [isCameraOpen, setIsCameraOpen] = useState(false);
-  const [cardImage, setCardImage] = useState();
+  // const [cardImage, setCardImage] = useState();
 
-  const captureHandler = (blob) => {
-    setCardImage(blob);
-    const imageURL = URL.createObjectURL(blob);
-    // setCurrentImage(imageURL);
-  };
+  // const captureHandler = (blob) => {
+  //   setCardImage(blob);
+  //   const imageURL = URL.createObjectURL(blob);
+  //   // setCurrentImage(imageURL);
+  // };
+  useEffect(() => {
+    setIsCameraOpen(false);
+  }, [imgURL]);
 
   const openCameraHandler = () => {
     setIsCameraOpen(true);
@@ -17,21 +23,7 @@ const Scan = (props) => {
 
   return (
     <section className="scan">
-      {isCameraOpen && (
-        <Camera
-          onCapture={captureHandler}
-          onClear={() => setCardImage(undefined)}
-          isCameraOpen={isCameraOpen}
-        />
-
-      )}
-      {/* <button type="button" style={{zIndex: '1010' }} onClick={openCameraHandler}>Open Camera</button> */}
-      {/* {true && (
-        <Camera
-          onCapture={captureHandler}
-          onClear={() => setCardImage(undefined)}
-        />
-      )} */}
+      {isCameraOpen && <Camera />}
 
       <button
         type="button"
@@ -40,8 +32,19 @@ const Scan = (props) => {
       >
         Сканировать
       </button>
+
+      <img src={imgURL} alt="Фото объекта вторичной переработки" />
     </section>
   );
 };
 
-export default Scan;
+Scan.propTypes = {
+  imgURL: PropTypes.string.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  imgURL: state.imgURL,
+});
+
+export { Scan };
+export default connect(mapStateToProps, null)(Scan);
