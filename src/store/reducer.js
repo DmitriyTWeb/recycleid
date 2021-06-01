@@ -1,7 +1,7 @@
 import { ActionType } from './action';
 
 const initialState = {
-  imageURL: '',
+  imgURL: '',
   predictions: [],
 };
 
@@ -14,7 +14,7 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.SET_IMAGE_URL:
       return extend(state, {
-        imageURL: action.payload,
+        imgURL: action.payload,
       });
     case ActionType.SET_PREDICTIONS:
       return extend(state, {
