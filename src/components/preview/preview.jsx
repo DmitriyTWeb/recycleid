@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Preview = ({ blob }) => (
-  <div>
-    <h2>Preview</h2>
-    <img
-      className="capturing__preview"
-      src={blob && URL.createObjectURL(blob)}
-      alt="Preview"
-    />
+const Preview = ({ imgSrc }) => (
+  <div className="preview">
+    {console.log('imgURL = ', imgSrc)}
+    <img className="preview__render" src={imgSrc} alt="Preview предпросмотр" />
+    {!imgSrc && <p>Nothing to displa</p>}
   </div>
 );
 
 Preview.propTypes = {
-  blob: PropTypes.instanceOf(Blob).isRequired,
+  imgSrc: PropTypes.string,
+};
+Preview.defaultProps = {
+  imgSrc: '',
 };
 
 export default Preview;

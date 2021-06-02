@@ -1,0 +1,22 @@
+.preview__render {
+  border-radius: 15px;
+  width: $preview-rect-size-mobile;
+  height: $preview-rect-size-mobile;
+}
+
+
+@media (min-width: $tablet-width) {
+  .preview__render {
+    border-radius: 30px;
+    width: $preview-rect-size-tablet;
+    height: $preview-rect-size-tablet;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .preview__render {
+    border-radius: 45px;
+    width: $preview-rect-size-desktop;
+    height: $preview-rect-size-desktop;
+  }
+}
