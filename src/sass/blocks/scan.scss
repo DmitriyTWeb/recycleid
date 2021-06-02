@@ -1,7 +1,7 @@
 .scan {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: $scan-rect-size-mobile;
+  height: $scan-rect-size-mobile;
   margin: 0 auto;
   background-image: url("../img/icon-scan.svg");
   background-color: #f0f8ff;
@@ -24,8 +24,8 @@
 
 @media (min-width: $tablet-width) {
   .scan {
-    width: 300px;
-    height: 300px;
+    width: $scan-rect-size-tablet;
+    height: $scan-rect-size-tablet;
     border-radius: 30px;
   }
 
@@ -36,8 +36,8 @@
 
 @media (min-width: $desktop-width) {
   .scan {
-    width: 400px;
-    height: 400px;
+    width: $scan-rect-size-desktop;
+    height: $scan-rect-size-desktop;
     border-radius: 45px;
   }
 }

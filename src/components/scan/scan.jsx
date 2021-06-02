@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 // eslint-disable-next-line import/no-named-as-default
 import Camera from '../camera/camera';
+import Preview from "../preview/preview";
 
 const Scan = ({ imgURL }) => {
   const [isCameraOpen, setIsCameraOpen] = useState(false);
@@ -24,16 +25,14 @@ const Scan = ({ imgURL }) => {
   return (
     <section className="scan">
       {isCameraOpen && <Camera />}
+      {console.log('imgURL = ', imgURL)}
+      {
+        !isCameraOpen && !imgURL
+        && <button type="button" className="scan__shot-btn" onClick={openCameraHandler}>Сканировать</button>
+      }
 
-      <button
-        type="button"
-        className="scan__shot-btn"
-        onClick={openCameraHandler}
-      >
-        Сканировать
-      </button>
+      {!isCameraOpen && imgURL && <Preview imgSrc={imgURL} />}
 
-      <img src={imgURL} alt="Фото объекта вторичной переработки" />
     </section>
   );
 };
