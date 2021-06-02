@@ -14,8 +14,8 @@
 }
 .camera__video {
   position: relative;
-  width: 280px;
-  height: 280px;
+  width: $camera-rect-size-mobile;
+  height: $camera-rect-size-mobile;
   z-index: 100;
   left: 50%;
   top: 32%;
@@ -23,6 +23,8 @@
   transform: translate(-50%, -50%);
   background-color: black;
   border-radius: 10px;
+
+  object-fit: cover;
 }
 .camera__shot-btn {
   position: absolute;
@@ -63,4 +65,17 @@
   padding-bottom: 12px;
   text-align: center;
   z-index: 100;
+}
+
+@media (min-width: $tablet-width) {
+  .camera__video {
+    width: $camera-rect-size-tablet;
+    height: $camera-rect-size-tablet;
+  }
+}
+@media (min-width: $desktop-width) {
+  .camera__video {
+    width: $camera-rect-size-desktop;
+    height: $camera-rect-size-desktop;
+  }
 }
