@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setError } from '../store/action';
 
 const useUserMedia = (requestedMedia) => {
   const [mediaStream, setMediaStream] = useState(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function enableStream() {
@@ -9,7 +12,7 @@ const useUserMedia = (requestedMedia) => {
         const stream = await navigator.mediaDevices.getUserMedia(requestedMedia);
         setMediaStream(stream);
       } catch (err) {
-        // some catch code
+        dispatch(setError(err.message));
       }
     }
 
@@ -22,7 +25,7 @@ const useUserMedia = (requestedMedia) => {
         });
       };
     }
-  }, [mediaStream, requestedMedia]);
+  }, [mediaStream, requestedMedia, dispatch]);
 
   return mediaStream;
 };
