@@ -20,6 +20,10 @@ const reducer = (state = initialState, action) => {
       return extend(state, {
         predictions: action.payload,
       });
+    case ActionType.RESET_IMAGE:
+      return extend(state, {
+        imgURL: '',
+      });
     default:
       return state;
   }
