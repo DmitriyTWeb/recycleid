@@ -3,6 +3,7 @@ import { ActionType } from './action';
 const initialState = {
   imgURL: '',
   predictions: [],
+  error: '',
 };
 
 const extend = (a, b) => ({
@@ -23,6 +24,14 @@ const reducer = (state = initialState, action) => {
     case ActionType.RESET_IMAGE:
       return extend(state, {
         imgURL: '',
+      });
+    case ActionType.SET_ERROR:
+      return extend(state, {
+        error: action.payload,
+      });
+    case ActionType.RESET_ERROR:
+      return extend(state, {
+        error: '',
       });
     default:
       return state;
