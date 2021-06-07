@@ -1,0 +1,14 @@
+.error-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  z-index: 10;
+  background-color: #ffbfbf;
+  padding-bottom: 30px;
+}
