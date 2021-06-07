@@ -10,8 +10,6 @@ const CAPTURE_OPTIONS = {
   video: { facingMode: 'environment' },
 };
 
-// const DEFAULT_CARD_RATIO = 1.586;
-
 const Camera = ({ setSnapshotToStore }) => {
   const [videoRef, setVideoRef] = useState({ current: null });
 

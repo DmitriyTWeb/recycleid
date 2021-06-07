@@ -10,16 +10,16 @@
   height: 100%;
 
   z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.95);
 }
+
 .camera__video {
   position: relative;
   width: $camera-rect-size-mobile;
   height: $camera-rect-size-mobile;
-  z-index: 100;
   left: 50%;
   top: 32%;
-  z-index: 1001;
+  z-index: 100;
   transform: translate(-50%, -50%);
   background-color: black;
   border-radius: 10px;
@@ -35,7 +35,7 @@
   transform: translate(-50%, -50%);
   z-index: 100;
   border-radius: 50%;
-  border: 3px solid rgba(0, 0, 0, 0.9);
+  border: 3px solid rgba(128, 128, 128, 0.9);
   background-color: transparent;
 
   &:before {
@@ -58,20 +58,15 @@
   // background-color: rgba(197, 182, 190, 0.5);
 }
 
-.camera__shot {
-  display: block;
-  position: relative;
-  padding-top: 10px;
-  padding-bottom: 12px;
-  text-align: center;
-  z-index: 100;
-}
-
 @media (min-width: $tablet-width) {
   .camera__video {
     width: $camera-rect-size-tablet;
     height: $camera-rect-size-tablet;
   }
+  .camera__shot-btn {
+    top: 70%;
+  }
+
 }
 @media (min-width: $desktop-width) {
   .camera__video {
