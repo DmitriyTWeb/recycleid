@@ -19,7 +19,6 @@ export const setPredictions = (predictions) => ({
   payload: predictions,
 });
 
-
 export const setError = (error) => ({
   type: ActionType.SET_ERROR,
   payload: error,

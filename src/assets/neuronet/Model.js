@@ -15,9 +15,8 @@ const getModel = async () => {
   const model = await window.tmImage.load(modelURL, metadataURL);
   return model;
 };
-const sortPredictions = (predictions) => {
-  return predictions.sort((first, second) => second.probability - first.probability);
-};
+const sortPredictions = (predictions) => predictions
+  .sort((first, second) => second.probability - first.probability);
 
 export default class Model {
   constructor() {
