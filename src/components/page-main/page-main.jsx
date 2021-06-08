@@ -12,10 +12,10 @@ import Model from '../../assets/neuronet/Model';
 const PageMain = ({ model }) => (
   <>
     <main className="page-main container">
-      <div className="page-main__row">
+      <div className="page-main__flex">
         <Scan />
 
-        {/*  <OutputDesk model={model} /> */}
+        <OutputDesk model={model} />
       </div>
     </main>
     <ErrorScreen />

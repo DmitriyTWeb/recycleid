@@ -1,7 +1,18 @@
-.page-main__row {
+.page-main__fles {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+
   margin-top: 20px;
   margin-bottom: 20px;
+  max-width: 100%;
+}
+
+@media (min-width: $tablet-width) {
+  .page-main__fles {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+@media (min-width: $desktop-width) {
+
 }

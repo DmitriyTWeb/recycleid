@@ -17,13 +17,12 @@ $scan-rect-size-tablet: 300px;
 $scan-rect-size-desktop: 400px;
 
 $camera-rect-size-mobile: 280px;
-$camera-rect-size-tablet: 300px;
-$camera-rect-size-desktop: 400px;
+$camera-rect-size-tablet: 400px;
+$camera-rect-size-desktop: 500px;
 
-
-$preview-rect-size-mobile: 280px;
-$preview-rect-size-tablet: 300px;
-$preview-rect-size-desktop: 400px;
+$preview-rect-size-mobile: $scan-rect-size-mobile;
+$preview-rect-size-tablet: $scan-rect-size-tablet;
+$preview-rect-size-desktop: $scan-rect-size-desktop;
 
 
 
