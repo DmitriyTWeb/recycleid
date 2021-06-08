@@ -10,6 +10,71 @@ const CAPTURE_OPTIONS = {
   video: { facingMode: 'environment' },
 };
 
+const getDrawingRectParams = (streamRect) => {
+  const { width, height } = streamRect;
+  let sx;
+  let sy;
+  let shortSide;
+
+  if (height < width) {
+    sx = Math.round((width - height) / 2);
+    sy = 0;
+    shortSide = height;
+  } else if (height > width) {
+    sx = 0;
+    sy = Math.round((height - width) / 2);
+    shortSide = width;
+  } else {
+    sx = 0;
+    sy = 0;
+    shortSide = width;
+  }
+
+  return {
+    sx,
+    sy,
+    sWidth: shortSide,
+    sHeight: shortSide,
+    dx: 0,
+    dy: 0,
+    dWidth: shortSide,
+    dHeight: shortSide,
+  };
+};
+
+const getFilledCanvas = (mediaStream, videoRef) => {
+  const { width, height } = mediaStream.getVideoTracks()[0].getSettings();
+  const {
+    sx,
+    sy,
+    sWidth,
+    sHeight,
+    dx,
+    dy,
+    dWidth,
+    dHeight,
+  } = getDrawingRectParams({ width, height });
+
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d');
+  context.canvas.width = sWidth;
+  context.canvas.height = sWidth;
+
+  context.drawImage(
+    videoRef.current,
+    sx,
+    sy,
+    sWidth,
+    sHeight,
+    dx,
+    dy,
+    dWidth,
+    dHeight,
+  );
+
+  return canvas;
+};
+
 const Camera = ({ setSnapshotToStore }) => {
   const [videoRef, setVideoRef] = useState({ current: null });
 
@@ -29,28 +94,10 @@ const Camera = ({ setSnapshotToStore }) => {
     videoRef.current.play();
   };
 
-  const captureHandler = (blob) => {
-    const imgURL = URL.createObjectURL(blob);
-    setSnapshotToStore(imgURL);
-  };
-
-  const handleCapture = () => {
-    const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d');
-    const width = videoRef.current.clientWidth;
-    const height = videoRef.current.clientHeight;
-    context.canvas.width = width;
-    context.canvas.height = height;
-
-    context.drawImage(
-      videoRef.current,
-      0,
-      0,
-      width,
-      height,
-    );
-
-    canvas.toBlob(captureHandler, 'imga/jpeg', 1);
+  const captureHandler = () => {
+    const filledCanvas = getFilledCanvas(mediaStream, videoRef);
+    const base64ImgURL = filledCanvas.toDataURL();
+    setSnapshotToStore(base64ImgURL);
   };
 
   if (!mediaStream) {
@@ -75,7 +122,7 @@ const Camera = ({ setSnapshotToStore }) => {
       <button
         type="button"
         className="camera__shot-btn"
-        onClick={handleCapture}
+        onClick={captureHandler}
       />
     </div>
   );

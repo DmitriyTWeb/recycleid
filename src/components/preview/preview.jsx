@@ -5,7 +5,7 @@ import { resetImage } from '../../store/action';
 
 const Preview = ({ imgSrc, cameraBtnClickHandler, resetImgURL }) => (
   <div className="preview">
-    <img className="preview__render" src={imgSrc} alt="Preview предпросмотр" />
+    <img className="preview__render" src={imgSrc} alt="Preview предпросмотр" width="280" height="280" />
     {!imgSrc && <p>Nothing to displa</p>}
 
     <div className="preview__controls">

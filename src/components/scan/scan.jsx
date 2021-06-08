@@ -22,15 +22,11 @@ const Scan = ({ imgURL }) => {
     <section className="scan">
       {isCameraOpen && <Camera />}
 
-      {
-        !isCameraOpen && !imgURL
-        && <button type="button" className="scan__shot-btn" onClick={openCameraHandler}>Сканировать</button>
-      }
+      { !imgURL
+        && <button type="button" className="scan__shot-btn" onClick={openCameraHandler}>Сканировать</button> }
 
-      {
-        !isCameraOpen && imgURL
-        && <Preview imgSrc={imgURL} cameraBtnClickHandler={setIsCameraOpen} />
-      }
+      { !isCameraOpen && imgURL
+        && <Preview imgSrc={imgURL} cameraBtnClickHandler={setIsCameraOpen} /> }
 
     </section>
   );
