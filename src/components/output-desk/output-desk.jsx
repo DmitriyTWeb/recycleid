@@ -47,18 +47,18 @@ const getFormatedPredictions = (predicts) => {
   return convertedPredicts;
 };
 
-const OutputDesk = ({ model, imageURL, setPredictionsToStore }) => {
+const OutputDesk = ({ model, imgURL, setPredictionsToStore }) => {
   const [predictions, setPredictionsToState] = useState([]);
 
   useEffect(() => {
-    model.getPredictions(imageURL)
+    model.getPredictions(imgURL)
       .then((predicts) => {
         setPredictionsToStore(predicts);
 
         const formattedPredictions = getFormatedPredictions(predicts);
         setPredictionsToState(formattedPredictions);
       });
-  }, [model, imageURL, setPredictionsToStore]);
+  }, [model, imgURL, setPredictionsToStore]);
 
   return (
     <section className="output-desk">
@@ -87,12 +87,12 @@ const OutputDesk = ({ model, imageURL, setPredictionsToStore }) => {
 
 OutputDesk.propTypes = {
   model: PropTypes.instanceOf(Model).isRequired,
-  imageURL: PropTypes.string.isRequired,
+  imgURL: PropTypes.string.isRequired,
   setPredictionsToStore: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  imageURL: state.imageURL,
+  imgURL: state.imgURL,
 });
 
 const mapDispatchToProps = (dispatch) => ({
