@@ -10,7 +10,7 @@
   height: 100%;
 
   z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.95);
+  background-color: rgba(0, 0, 0, 0.98);
 }
 
 .camera__video {
@@ -18,7 +18,7 @@
   width: $camera-rect-size-mobile;
   height: $camera-rect-size-mobile;
   left: 50%;
-  top: 32%;
+  top: 185px;
   z-index: 100;
   transform: translate(-50%, -50%);
   background-color: black;
@@ -31,7 +31,7 @@
   width: 60px;
   height: 60px;
   left: 50%;
-  top: 65%;
+  top: 400px;
   transform: translate(-50%, -50%);
   z-index: 100;
   border-radius: 50%;
@@ -47,7 +47,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-
     background-color: brown;
   }
 }
@@ -55,16 +54,16 @@
   position: absolute;
   top: 0;
   left: 0;
-  // background-color: rgba(197, 182, 190, 0.5);
 }
 
 @media (min-width: $tablet-width) {
   .camera__video {
     width: $camera-rect-size-tablet;
     height: $camera-rect-size-tablet;
+    top: 210px;
   }
   .camera__shot-btn {
-    top: 70%;
+    top: 430px;
   }
 
 }
@@ -72,5 +71,9 @@
   .camera__video {
     width: $camera-rect-size-desktop;
     height: $camera-rect-size-desktop;
+    top: 310px;
+  }
+  .camera__shot-btn {
+    top: 670px;
   }
 }
