@@ -1,5 +1,6 @@
 .output-desk {
   margin-left: 10px;
+  margin: 0 auto;
   margin-bottom: 20px;
   max-width: 100%;
 }
@@ -26,4 +27,16 @@
 
 td.output-desk__predict-title {
   text-align: left;
+}
+
+
+@media (min-width: $tablet-width) {
+  .output-desk__table {
+    font-size: 14px;
+  }
+}
+@media (min-width: $desktop-width) {
+  .output-desk__table {
+    font-size: 16px;
+  }
 }

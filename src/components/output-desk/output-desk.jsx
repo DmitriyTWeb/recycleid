@@ -51,6 +51,9 @@ const OutputDesk = ({ model, imgURL, setPredictionsToStore }) => {
   const [predictions, setPredictionsToState] = useState([]);
 
   useEffect(() => {
+    if (!imgURL) {
+      setPredictionsToState([]);
+    }
     model.getPredictions(imgURL)
       .then((predicts) => {
         setPredictionsToStore(predicts);
