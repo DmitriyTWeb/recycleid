@@ -1,7 +1,9 @@
 export const ActionType = {
   SET_IMAGE_URL: 'SET_IMAGE_URL',
-  SET_PREDICTIONS: 'SET_PREDICTIONS',
   RESET_IMAGE: 'RESET_IMAGE',
+  SET_PREDICTIONS: 'SET_PREDICTIONS',
+  RESET_PREDICTIONS: 'RESET_PREDICTIONS',
+
   SET_ERROR: 'SET_ERROR',
   RESET_ERROR: 'RESET_ERROR',
 };
@@ -17,6 +19,9 @@ export const resetImage = () => ({
 export const setPredictions = (predictions) => ({
   type: ActionType.SET_PREDICTIONS,
   payload: predictions,
+});
+export const resetPredictions = () => ({
+  type: ActionType.RESET_PREDICTIONS,
 });
 
 export const setError = (error) => ({

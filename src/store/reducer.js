@@ -17,13 +17,18 @@ const reducer = (state = initialState, action) => {
       return extend(state, {
         imgURL: action.payload,
       });
+    case ActionType.RESET_IMAGE:
+      return extend(state, {
+        imgURL: '',
+      });
     case ActionType.SET_PREDICTIONS:
       return extend(state, {
         predictions: action.payload,
       });
-    case ActionType.RESET_IMAGE:
+    case ActionType.RESET_PREDICTIONS:
+      console.log('resetPredctions reducer');
       return extend(state, {
-        imgURL: '',
+        predictions: [],
       });
     case ActionType.SET_ERROR:
       return extend(state, {
