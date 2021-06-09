@@ -10,9 +10,11 @@ import Model from '../../assets/neuronet/Model';
 const model = new Model();
 model.loadModel()
   .then(() => {
-    // Обработать загрузку модели
+    // Фейковый вызов предсказания для ускорения последующих вызовов
+    model.makeFakePredictions();
   })
   .catch((exception) => {
+    // eslint-disable-next-line no-console
     console.log('Не удалось загрузить модель данных: \n ', exception);
   });
 

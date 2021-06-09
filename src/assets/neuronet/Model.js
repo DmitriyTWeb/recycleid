@@ -1,3 +1,5 @@
+import { fakeImgBase64URL } from '../../const';
+
 const ErrorMessage = {
   PREDICTION_FAIL: 'Predicting attemp failed',
   LOAD_MODEL_FAIL: 'Attempt to load the model failed',
@@ -59,5 +61,9 @@ export default class Model {
       };
       img.src = imageURL;
     });
+  }
+
+  makeFakePredictions() {
+    this.getPredictions(fakeImgBase64URL);
   }
 }
