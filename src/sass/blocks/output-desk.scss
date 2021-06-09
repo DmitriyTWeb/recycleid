@@ -7,12 +7,15 @@
 .output-desk__title {
   text-align: center;
   font-size: 16px;
+  line-height: 18px;
+  margin: 0 auto 5px auto;
 }
 
 .output-desk__table {
   border: 2px solid grey;
   border-collapse: collapse;
   font-size: 10px;
+  line-height: 12px;
   table-layout:fixed;
   width:100%;
 }
@@ -22,7 +25,7 @@
   padding: 2px 3px 3px 3px;
   text-align: center;
   border: 2px solid grey;
-  word-break: break-all;
+  word-wrap: wrap;
 }
 
 td.output-desk__predict-title {
@@ -33,10 +36,12 @@ td.output-desk__predict-title {
 @media (min-width: $tablet-width) {
   .output-desk__table {
     font-size: 14px;
+    line-height: 16px;
   }
 }
 @media (min-width: $desktop-width) {
   .output-desk__table {
     font-size: 16px;
+    line-height: 18px;
   }
 }
