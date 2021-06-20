@@ -10,7 +10,6 @@
   line-height: 18px;
   margin: 0 auto 5px auto;
 }
-
 .output-desk__table {
   border: 2px solid grey;
   border-collapse: collapse;
@@ -34,13 +33,24 @@ td.output-desk__predict-title {
 
 
 @media (min-width: $tablet-width) {
+  .output-desk {
+    margin: 0;
+    max-width: 370px;
+  }
+  .output-desk__title {
+    margin-bottom: 15px;
+  }
   .output-desk__table {
     font-size: 14px;
     line-height: 16px;
   }
 }
 @media (min-width: $desktop-width) {
+  .output-desk {
+    max-width: 600px;
+  }
   .output-desk__table {
+
     font-size: 16px;
     line-height: 18px;
   }

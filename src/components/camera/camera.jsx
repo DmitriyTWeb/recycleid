@@ -78,7 +78,7 @@ const getFilledCanvas = (mediaStream, videoRef) => {
 const Camera = ({ setSnapshotToStore }) => {
   const [videoRef, setVideoRef] = useState({ current: null });
 
-  const callBackRef = useCallback((node) => {
+  const callback = useCallback((node) => {
     setVideoRef({ current: node });
   }, []);
 
@@ -108,7 +108,7 @@ const Camera = ({ setSnapshotToStore }) => {
     <div className="camera">
       <video
         className="camera__video"
-        ref={callBackRef}
+        ref={callback}
         onCanPlay={handleCanPlay}
         autoPlay
         playsInline
