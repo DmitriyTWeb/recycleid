@@ -21,7 +21,7 @@
   transform: translate(-50%, -50%);
   background-color: transparent;
 
-  text-shadow: 1px 1px 1px grey;
+  text-shadow: 1px 1px 2px grey;
 
   &:hover {
     text-shadow: 2px 2px 1px grey;
@@ -33,6 +33,7 @@
 
 @media (min-width: $tablet-width) {
   .scan {
+    margin: 0;
     width: $scan-rect-size-tablet;
     height: $scan-rect-size-tablet;
     border-radius: 30px;

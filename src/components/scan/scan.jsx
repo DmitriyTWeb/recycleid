@@ -7,12 +7,12 @@ import { connect } from 'react-redux';
 import Camera from '../camera/camera';
 import Preview from '../preview/preview';
 
-const Scan = ({ imgURL }) => {
+const Scan = ({ imgURL, errorMessage }) => {
   const [isCameraOpen, setIsCameraOpen] = useState(false);
 
   useEffect(() => {
     setIsCameraOpen(false);
-  }, [imgURL]);
+  }, [imgURL, errorMessage]);
 
   const openCameraHandler = () => {
     setIsCameraOpen(true);
@@ -34,10 +34,12 @@ const Scan = ({ imgURL }) => {
 
 Scan.propTypes = {
   imgURL: PropTypes.string.isRequired,
+  errorMessage: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   imgURL: state.imgURL,
+  errorMessage: state.error,
 });
 
 export { Scan };

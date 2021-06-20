@@ -48,8 +48,7 @@ a {
 
 .button {
   display: inline-block;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding: 10px;
 
   font-family: $base-font, $second-font, sans-serif;
   font-size: 14px;
@@ -57,10 +56,11 @@ a {
   font-weight: 400;
 
   color: $white;
-  background-color: $main-green;
+  background-color: #35a9c0;
   text-transform: uppercase;
 
   border: none;
+  border-radius: 5px;
 
   &:hover,
   &:focus {
@@ -78,8 +78,7 @@ a {
   }
 
   .button {
-    padding-top: 17px;
-    padding-bottom: 17px;
+    padding: 10px;
     font-size: 20px;
     line-height: 20px;
   }

@@ -10,12 +10,12 @@ const ErrorScreen = ({ errorMessage, resetErrorAction }) => {
 
   return (
     <section className="error-screen">
-      <h1>Ошибка</h1>
+      <h1 className="error-screen__title">Ошибка</h1>
 
-      <p>{errorMessage}</p>
+      <p className="error-screen__reason">{errorMessage}</p>
 
-      <button type="button" onClick={resetErrorAction}>
-        RESET ERROR
+      <button type="button" className="button" onClick={resetErrorAction}>
+        ЗАКРЫТЬ
       </button>
     </section>
   );

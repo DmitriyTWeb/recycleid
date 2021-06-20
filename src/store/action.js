@@ -29,5 +29,5 @@ export const setError = (error) => ({
   payload: error,
 });
 export const resetError = () => ({
-  type: ActionType.SET_ERROR,
+  type: ActionType.RESET_ERROR,
 });

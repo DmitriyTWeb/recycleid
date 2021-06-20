@@ -12,7 +12,7 @@ const useUserMedia = (requestedMedia) => {
         const stream = await navigator.mediaDevices.getUserMedia(requestedMedia);
         setMediaStream(stream);
       } catch (err) {
-        dispatch(setError(err.message));
+        dispatch(setError('Ошибка доступа к камере устройства'));
       }
     }
 

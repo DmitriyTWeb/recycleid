@@ -26,7 +26,6 @@ const reducer = (state = initialState, action) => {
         predictions: action.payload,
       });
     case ActionType.RESET_PREDICTIONS:
-      console.log('resetPredctions reducer');
       return extend(state, {
         predictions: [],
       });
