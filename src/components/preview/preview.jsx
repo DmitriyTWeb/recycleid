@@ -1,17 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { resetImage, resetPredictions } from '../../store/action';
+import { resetAll } from '../../store/action';
 
 const Preview = ({
   imgSrc,
   cameraBtnClickHandler,
-  resetImgURL,
-  resetPredictionsInStore,
+  resetAllInStore,
 }) => {
   const resetHandler = () => {
-    resetImgURL();
-    resetPredictionsInStore();
+    resetAllInStore();
   };
 
   return (
@@ -41,8 +39,7 @@ const Preview = ({
 
 Preview.propTypes = {
   imgSrc: PropTypes.string,
-  resetImgURL: PropTypes.func.isRequired,
-  resetPredictionsInStore: PropTypes.func.isRequired,
+  resetAllInStore: PropTypes.func.isRequired,
   cameraBtnClickHandler: PropTypes.func.isRequired,
 };
 Preview.defaultProps = {
@@ -50,11 +47,8 @@ Preview.defaultProps = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  resetImgURL() {
-    dispatch(resetImage());
-  },
-  resetPredictionsInStore() {
-    dispatch(resetPredictions());
+  resetAllInStore() {
+    dispatch(resetAll());
   },
 });
 
