@@ -6,6 +6,10 @@ export const ActionType = {
 
   SET_ERROR: 'SET_ERROR',
   RESET_ERROR: 'RESET_ERROR',
+
+  SET_ACTIVE_CLASS: 'SET_ACTIVE_CLASS',
+  RESET_ACTIVE_CLASS: 'RESET_ACTIVE_CLASS',
+  RESET_ALL: 'RESET_ALL',
 };
 
 export const setImage = (imageURL) => ({
@@ -30,4 +34,15 @@ export const setError = (error) => ({
 });
 export const resetError = () => ({
   type: ActionType.RESET_ERROR,
+});
+
+export const setActiveClass = (activePredict) => ({
+  type: ActionType.SET_ACTIVE_CLASS,
+  payload: activePredict,
+});
+export const resetActiveClass = () => ({
+  type: ActionType.RESET_ACTIVE_CLASS,
+});
+export const resetAll = () => ({
+  type: ActionType.RESET_ALL,
 });

@@ -4,6 +4,7 @@ const initialState = {
   imgURL: '',
   predictions: [],
   error: '',
+  activeClass: '',
 };
 
 const extend = (a, b) => ({
@@ -36,6 +37,21 @@ const reducer = (state = initialState, action) => {
     case ActionType.RESET_ERROR:
       return extend(state, {
         error: '',
+      });
+    case ActionType.SET_ACTIVE_CLASS:
+      return extend(state, {
+        activeClass: action.payload,
+      });
+    case ActionType.RESET_ACTIVE_CLASS:
+      return extend(state, {
+        activeClass: '',
+      });
+    case ActionType.RESET_ALL:
+      return extend(state, {
+        activeClass: '',
+        error: '',
+        predictions: [],
+        imgURL: '',
       });
     default:
       return state;
