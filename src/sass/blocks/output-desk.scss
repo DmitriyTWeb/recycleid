@@ -1,3 +1,10 @@
+$mobile-font-size: 10px;
+$mobile-line-height: 12px;
+$tablet-font-size: $mobile-font-size + 4;
+$tablet-line-height: $mobile-line-height + 4;
+$desktop-font-size: $tablet-font-size + 2;
+$desktop-line-height: $tablet-line-height + 2;
+
 .output-desk {
   margin-left: 10px;
   margin: 0 auto;
@@ -18,6 +25,11 @@
   table-layout:fixed;
   width:100%;
 }
+.output-desk__active-row {
+  background-color: $light-green;
+  font-size: $mobile-font-size + 2;
+  line-height: $mobile-line-height + 2;
+}
 
 .output-desk__table td,
 .output-desk__table th {
@@ -25,6 +37,10 @@
   text-align: center;
   border: 2px solid grey;
   word-wrap: wrap;
+}
+.output-desk__active-row td {
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 td.output-desk__predict-title {
