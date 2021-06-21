@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { setPredictions } from '../../store/action';
+import { setActiveClass, setPredictions } from '../../store/action';
 import Model from '../../assets/neuronet/Model';
 import idClasses from '../../assets/id-classes/id-classes';
 import { kebabToCamelCase } from '../../utils';
@@ -47,7 +47,9 @@ const getFormatedPredictions = (predicts) => {
   return convertedPredicts;
 };
 
-const OutputDesk = ({ model, imgURL, setPredictionsToStore }) => {
+const OutputDesk = ({
+  model, imgURL, setPredictionsToStore, setActiveClassToStore, activeClass,
+}) => {
   const [predictions, setPredictionsToState] = useState([]);
 
   useEffect(() => {
@@ -63,20 +65,40 @@ const OutputDesk = ({ model, imgURL, setPredictionsToStore }) => {
       });
   }, [model, imgURL, setPredictionsToStore]);
 
+  const rowClickHandler = (evt) => {
+    const selectedRow = evt.target.closest('tr');
+    const rowId = selectedRow.getAttribute('id');
+    setActiveClassToStore(rowId);
+  };
+
+  const getRowClassName = (currentPredictId) => {
+    const shouldBeInitiate = predictions && !activeClass;
+    const activeId = shouldBeInitiate ? predictions[0].id : activeClass;
+    const className = activeId === currentPredictId ? 'output-desk__active-row' : '';
+
+    return className;
+  };
+
   return (
     <section className="output-desk">
       <h2 className="output-desk__title">Данные распознавания</h2>
 
       <table className="output-desk__table">
-        <tbody>
+        <thead>
           <tr>
             <th>Наименование</th>
             <th>Вероятность %</th>
             <th>Принимается</th>
           </tr>
-
+        </thead>
+        <tbody>
           {predictions.map((predict) => (
-            <tr key={predict.id}>
+            <tr
+              key={predict.id}
+              id={predict.id}
+              className={getRowClassName(predict.id)}
+              onClick={rowClickHandler}
+            >
               <td className="output-desk__predict-title">{`${predict.title}`}</td>
               <td>{`${predict.probability}`}</td>
               <td>{`${predict.isAcceptable}`}</td>
@@ -92,15 +114,21 @@ OutputDesk.propTypes = {
   model: PropTypes.instanceOf(Model).isRequired,
   imgURL: PropTypes.string.isRequired,
   setPredictionsToStore: PropTypes.func.isRequired,
+  setActiveClassToStore: PropTypes.func.isRequired,
+  activeClass: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   imgURL: state.imgURL,
+  activeClass: state.activeClass,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   setPredictionsToStore(predictions) {
     dispatch(setPredictions(predictions));
+  },
+  setActiveClassToStore(activeClass) {
+    dispatch(setActiveClass(activeClass));
   },
 });
 
