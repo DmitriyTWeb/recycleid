@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import OutputDesk from '../output-desk/output-desk';
-import ErrorScreen from '../error-screen/error-screen';
+import ErrorScreen from '../error-screen/error-screen.tsx';
 
 import Scan from '../scan/scan';
 

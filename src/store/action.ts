@@ -12,37 +12,42 @@ export const ActionType = {
   RESET_ALL: 'RESET_ALL',
 };
 
-export const setImage = (imageURL) => ({
+interface actionObj {
+  type: string;
+  payload?: string | Object;
+}
+
+export const setImage = (imageURL: string): actionObj => ({
   type: ActionType.SET_IMAGE_URL,
   payload: imageURL,
 });
-export const resetImage = () => ({
+export const resetImage = (): actionObj => ({
   type: ActionType.RESET_IMAGE,
 });
 
-export const setPredictions = (predictions) => ({
+export const setPredictions = (predictions: Array<Object>): actionObj => ({
   type: ActionType.SET_PREDICTIONS,
   payload: predictions,
 });
-export const resetPredictions = () => ({
+export const resetPredictions = (): actionObj => ({
   type: ActionType.RESET_PREDICTIONS,
 });
 
-export const setError = (error) => ({
+export const setError = (error: Object): actionObj => ({
   type: ActionType.SET_ERROR,
   payload: error,
 });
-export const resetError = () => ({
+export const resetError = (): actionObj => ({
   type: ActionType.RESET_ERROR,
 });
 
-export const setActiveClass = (activePredict) => ({
+export const setActiveClass = (activePredict: Object): actionObj => ({
   type: ActionType.SET_ACTIVE_CLASS,
   payload: activePredict,
 });
-export const resetActiveClass = () => ({
+export const resetActiveClass = (): actionObj => ({
   type: ActionType.RESET_ACTIVE_CLASS,
 });
-export const resetAll = () => ({
+export const resetAll = (): actionObj => ({
   type: ActionType.RESET_ALL,
 });

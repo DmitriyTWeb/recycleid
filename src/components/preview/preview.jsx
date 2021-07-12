@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { resetAll } from '../../store/action';
+import { resetAll } from '../../store/action.ts';
 
 const Preview = ({
   imgSrc,

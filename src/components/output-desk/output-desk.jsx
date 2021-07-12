@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { setActiveClass, setPredictions } from '../../store/action';
+import { setActiveClass, setPredictions } from '../../store/action.ts';
 import Model from '../../assets/neuronet/Model';
 import idClasses from '../../assets/id-classes/id-classes';
 import { kebabToCamelCase } from '../../utils';

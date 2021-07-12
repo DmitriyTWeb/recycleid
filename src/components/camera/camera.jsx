@@ -2,7 +2,7 @@
 import React, { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { setImage } from '../../store/action';
+import { setImage } from '../../store/action.ts';
 import useUserMedia from '../../hooks/use-user-media';
 
 const CAPTURE_OPTIONS = {

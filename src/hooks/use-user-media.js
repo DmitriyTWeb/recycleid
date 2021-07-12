@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setError } from '../store/action';
+import { setError } from '../store/action.ts';
 
 const useUserMedia = (requestedMedia) => {
   const [mediaStream, setMediaStream] = useState(null);
