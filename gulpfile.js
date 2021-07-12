@@ -16,7 +16,7 @@ const webpackConfigProd = Object.assign({}, webpackConfig, { mode: 'production' 
 
 gulp.task('webpack', function () {
   return gulp
-    .src('src/index.js')
+    .src('src/index.tsx')
     .pipe(
       webpack(require('./webpack.config.js'))
     )
@@ -24,7 +24,7 @@ gulp.task('webpack', function () {
 });
 gulp.task('webpackProduction', function () {
   return gulp
-    .src('src/index.js')
+    .src('src/index.tsx')
     .pipe(
       webpack(webpackConfigProd)
     )
@@ -45,7 +45,7 @@ gulp.task("server", function () {
   gulp.watch("src/components/**/*.jsx", gulp.series("webpack", "refresh"));
   gulp.watch("src/hooks/*.js", gulp.series("webpack", "refresh"));
   gulp.watch("src/assets/neuronet/*.js", gulp.series("webpack", "refresh"));
-  gulp.watch("src/store/*.js", gulp.series("webpack", "refresh"));
+  gulp.watch("src/store/*.{js,ts}", gulp.series("webpack", "refresh"));
   gulp.watch("src/*.js", gulp.series("webpack", "refresh"));
 });
 
