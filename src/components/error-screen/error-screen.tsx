@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { resetError } from '../../store/action';
+import { State } from '../../interfaces';
 
-const ErrorScreen = ({ errorMessage, resetErrorAction }) => {
+
+type Props = {
+  errorMessage: string,
+  resetErrorAction: MouseEventHandler
+}
+
+const ErrorScreen: React.FC<Props> = ({ errorMessage, resetErrorAction }) => {
   if (!errorMessage) {
     return null;
   }
@@ -22,17 +29,15 @@ const ErrorScreen = ({ errorMessage, resetErrorAction }) => {
 };
 
 ErrorScreen.propTypes = {
-  errorMessage: PropTypes.string,
+  errorMessage: PropTypes.string.isRequired,
   resetErrorAction: PropTypes.func.isRequired,
 };
-ErrorScreen.defaultProps = {
-  errorMessage: '',
-};
 
-const mapStateToProps = (state) => ({
+
+const mapStateToProps = (state: State) => ({
   errorMessage: state.error,
 });
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch: Function) => ({
   resetErrorAction() {
     dispatch(resetError());
   },
