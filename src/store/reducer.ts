@@ -1,4 +1,5 @@
-import { ActionType } from './action.ts';
+import { Reducer } from 'redux';
+import { ActionType } from './action';
 
 const initialState = {
   imgURL: '',
@@ -7,12 +8,12 @@ const initialState = {
   activeClass: '',
 };
 
-const extend = (a, b) => ({
+const extend = (a: Object, b: Object) => ({
   ...a,
   ...b,
 });
 
-const reducer = (state = initialState, action) => {
+const reducer: Reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.SET_IMAGE_URL:
       return extend(state, {

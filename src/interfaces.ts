@@ -1,4 +1,4 @@
-export type State = {
+export interface State {
   imgURL: string,
   predictions: Array<Object>,
   error: string,
