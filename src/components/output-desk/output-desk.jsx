@@ -2,28 +2,9 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { getDescriptionByClassName } from '../../assets/utils.ts';
 import { setActiveClass, setPredictions } from '../../store/action.ts';
 import Model from '../../assets/neuronet/Model';
-import idClasses from '../../assets/id-classes/id-classes';
-import { kebabToCamelCase } from '../../utils';
-
-const emptyDescription = {
-  isAcceptable: false,
-  title: 'emptyTitle',
-  desc: 'emptyDesctiption',
-  preparingRules: [],
-};
-
-const getDescriptionByClassName = (className) => {
-  const classNameParts = className.split('__');
-  const SHORT_NAME_INDEX = 1;
-  const shortName = classNameParts[SHORT_NAME_INDEX];
-  const cameledName = kebabToCamelCase(shortName);
-
-  const description = idClasses[cameledName] || emptyDescription;
-
-  return description;
-};
 
 const getFormatedPredictions = (predicts) => {
   const MAX_PREDICTIONS_NUMBER = 5;
