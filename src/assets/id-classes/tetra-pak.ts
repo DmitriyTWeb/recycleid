@@ -1,6 +1,9 @@
+import { Category } from "./class-interfaces";
+
 /* eslint-disable import/prefer-default-export */
-export const tetraPak = {
+export const tetraPak: Category = {
   tetraPak: {
+    category: 'tetra-pak',
     isAcceptable: true,
     title: 'Тетрапак и аналоги',
     desc: `Cобирательный термин для многослойной упаковки продуктов.

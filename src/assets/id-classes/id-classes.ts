@@ -1,7 +1,9 @@
+import { Category } from './class-interfaces';
 import { paper } from './paper';
 import { tetraPak } from './tetra-pak';
 
-const idClasses = {
+
+const idClasses: Category = {
   ...paper,
   ...tetraPak,
 };
