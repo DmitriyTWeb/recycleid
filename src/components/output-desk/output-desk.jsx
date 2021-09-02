@@ -43,8 +43,10 @@ const OutputDesk = ({
 
         const formattedPredictions = getFormatedPredictions(predicts);
         setPredictionsToState(formattedPredictions);
+
+        setActiveClassToStore(predicts[0].className);
       });
-  }, [model, imgURL, setPredictionsToStore]);
+  }, [model, imgURL, setPredictionsToStore, setActiveClassToStore]);
 
   const rowClickHandler = (evt) => {
     const selectedRow = evt.target.closest('tr');

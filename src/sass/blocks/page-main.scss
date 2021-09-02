@@ -6,6 +6,10 @@
   margin-bottom: 20px;
   max-width: 100%;
 }
+.page-main__output {
+  display: flex;
+  flex-direction: column;
+}
 
 @media (min-width: $tablet-width) {
   .page-main__flex {
